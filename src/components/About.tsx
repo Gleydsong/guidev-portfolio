@@ -2,19 +2,6 @@ import React from "react";
 import "../styles/components/About.css";
 
 const About: React.FC = () => {
-  const handleDownload = async () => {
-    const response = await fetch(`${import.meta.env.BASE_URL}curriculo.pdf`);
-    const blob = await response.blob();
-    const blobUrl = window.URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = blobUrl;
-    link.download = "curriculo.pdf";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.URL.revokeObjectURL(blobUrl);
-  };
-
   return (
     <section id="about">
       <h2 data-aos="fade-up">Sobre Mim</h2>
@@ -31,14 +18,9 @@ const About: React.FC = () => {
         download="curriculo.pdf"
         className="btn"
         data-aos="fade-up"
-        onClick={(event) => {
-          event.preventDefault();
-          void handleDownload();
-        }}
       >
-        Baixar Currículo{" "}
+        Baixar Currículo
       </a>
-      <hr></hr>
     </section>
   );
 };

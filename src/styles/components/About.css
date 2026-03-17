@@ -1,12 +1,14 @@
 #about {
   padding: 80px 20px;
-  background-color: var(--cor-primaria-clara);
+  background-color: transparent;
   text-align: center;
 }
 
 #about h2 {
   font-size: 32px;
   margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #about p {
@@ -15,17 +17,27 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  color: #e0e0e0;
 }
 
 #about .btn {
-  font-size: 18px;
-  color: var(--cor-primaria);
-  padding-bottom: 1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 40px;
   text-decoration: none;
+  color: #000;
+  background-color: #45ffd2;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(69, 255, 210, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-#about hr {
-  border-top: 1px solid var(--cor-primaria);
-  width: 4rem;
+#about .btn:hover {
+  background-color: #33e6bc;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(69, 255, 210, 0.4);
 }
+

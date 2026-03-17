@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Projects from "./components/Projects";
 
+import bgVideo from "./assets/images/background.mp4";
+
 const App: React.FC = () => {
   useEffect(() => {
     AOS.init({
@@ -18,6 +20,12 @@ const App: React.FC = () => {
 
   return (
     <>
+      <div className="global-bg">
+        <video autoPlay loop muted playsInline>
+          <source src={bgVideo} type="video/mp4" />
+        </video>
+        <div className="global-bg-overlay"></div>
+      </div>
       <Header />
       <Hero />
       <About />
@@ -27,5 +35,6 @@ const App: React.FC = () => {
     </>
   );
 };
+
 
 export default App;

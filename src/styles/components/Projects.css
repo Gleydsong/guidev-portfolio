@@ -1,6 +1,6 @@
 #projects {
   padding: 100px 20px;
-  background-color: var(--cor-secundaria);
+  background-color: transparent; /* Deixa o vídeo visível */
 }
 
 #projects h2 {
@@ -8,8 +8,9 @@
   font-weight: 800;
   margin-bottom: 3rem;
   text-align: center;
-  color: var(--cor-primaria);
+  color: #fff;
   letter-spacing: -1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .projects-grid {
@@ -21,50 +22,54 @@
 }
 
 .project-card {
-  background-color: var(--cor-primaria-clara, #ffffff);
+  background-color: rgba(18, 30, 35, 0.65); /* Fundo de vidro translúcido */
+  backdrop-filter: blur(10px);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(69, 255, 210, 0.15); /* Borda suave ciano */
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.project-card .image-container {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(69, 255, 210, 0.2);
+  border-color: rgba(69, 255, 210, 0.5);
 }
 
 .project-card img {
   width: 100%;
-  height: 100%;
+  height: 220px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separa a imagem do resto do card */
+}
+
+/* Container de overflow ajustado para a imagem não estourar a borda radial no hover */
+.project-card .image-wrapper {
+  overflow: hidden;
+  height: 220px;
+  display: block;
 }
 
 .project-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Leve zoom sofisticado na foto */
 }
 
 .project-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
   margin: 24px 24px 12px;
-  color: var(--cor-secundaria-escura);
+  color: #fff; /* Título bem visível e claro */
 }
 
 .project-card p {
   font-size: 1rem;
   line-height: 1.6;
   margin: 0 24px 24px;
-  color: #555;
+  color: #e0e0e0; /* Texto do parágrafo mais vívido e cinza-plata claro */
   flex-grow: 1;
 }
 
@@ -73,8 +78,9 @@
   text-align: center;
   margin: 0 24px 24px;
   padding: 12px 24px;
-  background-color: var(--cor-secundaria);
-  color: var(--cor-primaria);
+  background-color: transparent;
+  color: var(--detalhe, #45ffd2);
+  border: 1px solid var(--detalhe, #45ffd2); /* Estilo fantasma de borda */
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
@@ -84,6 +90,7 @@
 .project-card .btn:hover {
   background-color: var(--detalhe, #45ffd2);
   color: #000;
+  box-shadow: 0 0 15px rgba(69, 255, 210, 0.4);
 }
 
 /* Modal e Botão de Fechar */
@@ -91,10 +98,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,11 +113,16 @@
   max-width: 90%;
   max-height: 90%;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content img {
   border-radius: 12px;
   object-fit: contain;
+  max-width: 100%;
+  max-height: 85vh;
 }
 
 .close-button {
@@ -121,7 +133,7 @@
   border: none;
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 50%;
@@ -129,5 +141,10 @@
   justify-content: center;
   align-items: center;
   color: #000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(69, 255, 210, 0.6);
+  transition: transform 0.2s;
+}
+
+.close-button:hover {
+  transform: scale(1.1);
 }
