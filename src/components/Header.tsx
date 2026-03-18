@@ -3,7 +3,12 @@ import "../styles/components/Header.css";
 import logo from "../assets/images/logo.png";
 import React, { useState } from "react";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  theme: "light" | "dark";
+  onThemeToggle: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ theme, onThemeToggle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,6 +27,14 @@ const Header: React.FC = () => {
           aria-expanded={isMenuOpen}
         >
           ☰
+        </button>
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={onThemeToggle}
+          aria-label="Alternar tema"
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
         </button>
         <nav className={`nav${isMenuOpen ? " nav-open" : ""}`}>
           <ul>

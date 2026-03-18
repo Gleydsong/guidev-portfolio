@@ -37,6 +37,24 @@ header {
   align-items: center;
 }
 
+.theme-toggle {
+  margin-left: 1rem;
+  border: none;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--color-primary);
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 200ms ease, background 200ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(37, 99, 235, 0.18);
+}
+
 .nav ul {
   display: flex;
   gap: 1.8rem;
