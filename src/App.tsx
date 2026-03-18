@@ -27,10 +27,12 @@ const App: React.FC = () => {
         <div className="global-bg-overlay"></div>
       </div>
       <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
+      <main className="page-shell">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+      </main>
       <Footer />
     </>
   );
