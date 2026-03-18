@@ -15,10 +15,15 @@ const Header: React.FC = () => {
         <div className="logo">
           <img src={logo} alt="Logo"></img>Portfólio
         </div>
-        <button className="menu-button" onClick={toggleMenu}>
+        <button
+          className="menu-button"
+          onClick={toggleMenu}
+          aria-label="Abrir menu de navegação"
+          aria-expanded={isMenuOpen}
+        >
           ☰
         </button>
-        <nav className={isMenuOpen ? "nav-open" : "nav"}>
+        <nav className={`nav${isMenuOpen ? " nav-open" : ""}`}>
           <ul>
             <li>
               <a href="#about">Sobre</a>

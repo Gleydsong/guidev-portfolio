@@ -23,22 +23,23 @@ const Projects: React.FC = () => {
         <h2>Projetos</h2>
         <div className="projects-grid">
           {projects.map((project) => (
-            <div className="project-card" key={project.id}>
-              <img
-                src={project.image}
-                alt={project.altText}
-                loading="lazy"
-                onClick={() => openImage(project.image)}
-                style={{ cursor: "pointer" }}
-              />
+          <div className="project-card" key={project.id}>
+            <img
+              src={project.image}
+              alt={project.altText}
+              loading="lazy"
+              onClick={() => openImage(project.image)}
+            />
+            <div className="project-card-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               {project.link && (
-                <a href={project.link} className="btn" target="_blank" rel="noreferrer">
+                <a href={project.link} className="btn primary" target="_blank" rel="noreferrer">
                   Ver Projeto
                 </a>
               )}
             </div>
+          </div>
           ))}
         </div>
       </section>

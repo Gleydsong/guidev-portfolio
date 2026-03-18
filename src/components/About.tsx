@@ -13,14 +13,6 @@ const About: React.FC = () => {
         Estou sempre aberto a novos desafios e oportunidades para crescer
         profissionalmente.
       </p>
-      <a
-        href={`${import.meta.env.BASE_URL}curriculo.pdf`}
-        download="curriculo.pdf"
-        className="btn"
-        data-aos="fade-up"
-      >
-        Baixar Currículo
-      </a>
     </section>
   );
 };

@@ -1,150 +1,138 @@
 #projects {
-  padding: 100px 20px;
-  background-color: transparent; /* Deixa o vídeo visível */
+  margin-bottom: 4rem;
 }
 
 #projects h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 3rem;
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
   text-align: center;
-  color: #fff;
-  letter-spacing: -1px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .project-card {
-  background-color: rgba(18, 30, 35, 0.65); /* Fundo de vidro translúcido */
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  background: var(--surface-panel);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(69, 255, 210, 0.15); /* Borda suave ciano */
+  transition: transform 250ms ease, box-shadow 250ms ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(69, 255, 210, 0.2);
-  border-color: rgba(69, 255, 210, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
 }
 
 .project-card img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separa a imagem do resto do card */
-}
-
-/* Container de overflow ajustado para a imagem não estourar a borda radial no hover */
-.project-card .image-wrapper {
-  overflow: hidden;
-  height: 220px;
   display: block;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+  cursor: pointer;
 }
 
-.project-card:hover img {
-  transform: scale(1.05); /* Leve zoom sofisticado na foto */
+.project-card-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 24px 24px 12px;
-  color: #fff; /* Título bem visível e claro */
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  font-family: "Archivo", sans-serif;
 }
 
 .project-card p {
-  font-size: 1rem;
+  margin: 0;
+  color: var(--color-muted);
   line-height: 1.6;
-  margin: 0 24px 24px;
-  color: #e0e0e0; /* Texto do parágrafo mais vívido e cinza-plata claro */
-  flex-grow: 1;
+  flex: 1;
 }
 
 .project-card .btn {
-  display: inline-block;
-  text-align: center;
-  margin: 0 24px 24px;
-  padding: 12px 24px;
-  background-color: transparent;
-  color: var(--detalhe, #45ffd2);
-  border: 1px solid var(--detalhe, #45ffd2); /* Estilo fantasma de borda */
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.project-card .btn.primary {
+  box-shadow: none;
 }
 
 .project-card .btn:hover {
-  background-color: var(--detalhe, #45ffd2);
-  color: #000;
-  box-shadow: 0 0 15px rgba(69, 255, 210, 0.4);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
 
-/* Modal e Botão de Fechar */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  inset: 0;
+  background: rgba(9, 9, 11, 0.85);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2000;
+  justify-content: center;
+  z-index: 2200;
+  backdrop-filter: blur(8px);
 }
 
 .modal-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-content img {
-  border-radius: 12px;
-  object-fit: contain;
-  max-width: 100%;
+  width: 100%;
   max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .close-button {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  background: var(--detalhe, #45ffd2);
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
+  top: -12px;
+  right: -12px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  box-shadow: 0 4px 15px rgba(69, 255, 210, 0.6);
-  transition: transform 0.2s;
+  border: none;
+  background: var(--color-cta);
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
 
 .close-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .project-card img {
+    height: 200px;
+  }
+
+  .project-card-content {
+    padding: 1.25rem;
+  }
 }
